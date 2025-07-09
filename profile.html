@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+
+  <div class="profile-section">
+    <a href="index.html" class="back-icon">←</a>
+
+    <div class="profile-header">
+      <h2 id="profileName">Loading...</h2>
+      <p id="profileEmail">Loading...</p>
+      <button onclick="toggleEdit(true)">Edit Profile</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul class="profile-menu">
+      <li>My Courses</li>
+      <li>Certificates</li>
+      <li>Progress</li>
+      <li>Account Settings</li>
+      <li onclick="logout()" class="logout">Log Out</li>
+    </ul>
+  </div>
+
+  <!-- EDIT PROFILE SECTION -->
+  <div class="edit-section" id="editSection" style="display: none;">
+    <h3>Edit Profile</h3>
+    <input type="text" id="editFirst" placeholder="First Name" />
+    <input type="text" id="editLast" placeholder="Last Name" />
+    <input type="text" id="editUsername" placeholder="Username" />
+    <input type="email" id="editEmail" placeholder="Email" />
+    <input type="tel" id="editPhone" placeholder="Phone Number" />
+    <input type="date" id="editBirth" />
+    <select id="editGender">
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+    <button onclick="updateProfile()">Save Changes</button>
+    <button onclick="toggleEdit(false)">Cancel</button>
+  </div>
+
+  <script type="module" src="profile.js"></script>
+</body>
+</html>

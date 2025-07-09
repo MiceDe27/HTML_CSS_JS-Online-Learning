@@ -1,0 +1,126 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-section, .edit-section {
+  position: relative;
+  padding: 20px;
+  max-width: 400px;
+  margin: 40px auto 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.back-icon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #333;
+  border-radius: 8px;
+  padding: 6px 10px;
+  background-color: #eee;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.back-icon:hover {
+  background-color: #ddd;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 50px auto 10px;
+  object-fit: cover;
+  border: 3px solid #ddd;
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-header h2 {
+  margin: 10px 0 5px;
+}
+
+.profile-header p {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.profile-header button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 20px 0;
+}
+
+.profile-menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.profile-menu li {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.profile-menu li:hover {
+  background-color: #f9f9f9;
+}
+
+.profile-menu li span {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.logout {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.edit-section input,
+.edit-section select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.edit-section button {
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

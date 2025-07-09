@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Homepage</title>
+  <link rel="stylesheet" href="homepage.css" />
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+  <ul>
+    <li class="active"><a href="#">Home</a></li>
+    <li>
+      <a href="profile.html">
+        <img src="Assets/login.png" id="navAvatar" class="nav-avatar" alt="Profile" />
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- WELCOME SECTION -->
+<section class="welcome">
+  <h2>Welcome, <span id="userName">Loading...</span>!</h2>
+  <img src="Assets/login.png" class="avatar" id="userAvatar" />
+  <p>Start learning new skills today!</p>
+</section>
+
+<!-- NOTIFICATION -->
+<div class="notification">
+  📢 New: <strong>JavaScript Projects</strong> now available!
+</div>
+
+<!-- SEARCH BAR with BUTTON and SUGGESTIONS -->
+<div class="search-container">
+  <input type="text" id="searchBox" placeholder="Search courses..." autocomplete="off" />
+  <button id="searchBtn">Search</button>
+  <div id="suggestions" class="suggestions-box"></div>
+</div>
+
+
+<!-- COURSES -->
+<section class="course-list">
+  <h3>Available Courses</h3>
+  <div class="courses" id="courseContainer">
+    <div class="course-card">
+      <h4>HTML Basics</h4>
+      <p>Learn the structure of the web.</p>
+      <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+      <a href="html_basics.html" class="start-btn">Start Learning</a>
+    </div>
+    <div class="course-card">
+      <h4>CSS Design</h4>
+      <p>Style your website beautifully.</p>
+      <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+      <a href="css_design.html" class="start-btn">Start Learning</a>
+    </div>
+    <div class="course-card">
+      <h4>JavaScript Essentials</h4>
+      <p>Make your site interactive.</p>
+      <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+      <a href="js_essentials.html" class="start-btn">Start Learning</a>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="homepage.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Register</title>
+  <link rel="stylesheet" href="login_signup_reset.css" />
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <section id="loginPage" class="page active">
+    <div class="form-box">
+      <img src="Assets/login.png" class="logo" alt="Logo" />
+      <h2>Login</h2>
+      <p>Sign in to continue.</p>
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button onclick="loginUser()">Log in</button>
+      <p><a href="#" onclick="switchPage('resetPage')">Forgot Password?</a></p>
+      <p>Don't have an account? <a href="#" onclick="switchPage('registerPage')">Signup!</a></p>
+    </div>
+  </section>
+
+<!-- REGISTER PAGE -->
+<section id="registerPage" class="page">
+  <div class="form-box">
+    <span class="back" onclick="switchPage('loginPage')">←</span>
+    <h2>Create new Account</h2>
+    <p>Already Registered? <a href="#" onclick="switchPage('loginPage')"> Log in here.</a></p>
+    <input type="text" id="regName" placeholder="Full Name" required />
+    <input type="email" id="regEmail" placeholder="Email" required />
+    <input type="password" id="regPassword" placeholder="Password" required />
+    <input type="password" id="regConfirm" placeholder="Confirm Password" required />
+    <button onclick="registerUser()">Sign up</button>
+  </div>
+</section>
+
+<!-- RESET PAGE (EMAIL RESET LINK) -->
+<section id="resetPage" class="page">
+  <div class="form-box">
+    <span class="back" onclick="switchPage('loginPage')">←</span>
+    <h2>Reset Password</h2>
+    <input type="email" id="resetEmail" placeholder="Enter your email" required />
+    <button onclick="sendResetLink()">Send Reset Link</button>
+  </div>
+</section>
+
+  <script type="module" src="login_signup_reset.js"></script>
+</body>
+</html>

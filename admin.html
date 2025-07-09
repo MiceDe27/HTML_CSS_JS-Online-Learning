@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+  <h2>Admin Panel</h2>
+  <input type="text" id="searchBox" placeholder="Search user...">
+  <p>Total Users: <span id="userCount">0</span></p>
+
+  <div class="table-wrapper">
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody><!-- Users inserted here --></tbody>
+    </table>
+  </div>
+</div>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
