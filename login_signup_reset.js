@@ -12,6 +12,7 @@ import {
   getFirestore,
   doc,
   setDoc,
+  getDoc,
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 // Firebase config
@@ -24,17 +25,18 @@ const firebaseConfig = {
   appId: "1:860504122814:web:2db0b7d2eeb559eff085ef",
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Switch between pages
+// Switch between pages (login/register/reset)
 window.switchPage = function (pageId) {
   document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"));
   document.getElementById(pageId).classList.add("active");
 };
 
-// Register User
+// ✅ Register User
 window.registerUser = async function () {
   const fullname = document.getElementById("regName").value.trim();
   const email = document.getElementById("regEmail").value.trim();
@@ -55,21 +57,23 @@ window.registerUser = async function () {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const uid = userCredential.user.uid;
 
+    // Save user to Firestore with default role: "user"
     await setDoc(doc(db, "users", uid), {
       fullname: fullname,
       email: email,
-      password: password, // ⚠️ Don't store raw passwords in production!
+      password: password,
+      role: "user", // 👈 Default role
       createdAt: new Date().toISOString(),
     });
 
-    alert("Account created!");
+    alert("Account created successfully!");
     switchPage("loginPage");
   } catch (error) {
     alert("Error: " + error.message);
   }
 };
 
-// Login User with Session Persistence
+// ✅ Login User with Role Check
 window.loginUser = async function () {
   const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
@@ -80,21 +84,32 @@ window.loginUser = async function () {
   }
 
   try {
-    await setPersistence(auth, browserLocalPersistence); // 👈 Add this
+    await setPersistence(auth, browserLocalPersistence);
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const uid = userCredential.user.uid;
 
-    if (email === "admin@email.com") {
-      window.location.href = "admin.html";
+    // 🔍 Get role from Firestore
+    const userDoc = await getDoc(doc(db, "users", uid));
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      const role = userData.role;
+
+      if (role === "admin") {
+        window.location.href = "admin.html";
+      } else {
+        alert("Welcome!");
+        window.location.href = "index.html";
+      }
     } else {
-      alert("Welcome!");
-      window.location.href = "index.html";
+      alert("No user data found in Firestore.");
     }
   } catch (error) {
     alert("Login Failed: " + error.message);
   }
 };
 
-// Send Reset Link
+// ✅ Send Reset Password Email
 window.sendResetLink = async function () {
   const email = document.getElementById("resetEmail").value.trim();
 
